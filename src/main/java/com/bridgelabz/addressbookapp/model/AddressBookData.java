@@ -10,7 +10,7 @@ public class AddressBookData {
     public String city;
     public String state;
     public String emailId;
-    public long phoneNumber;
+    public String phoneNumber;
     public int zipCode;
 
     public AddressBookData(int addressId, AddressBookDTO addressBookDTO) {
@@ -81,11 +81,11 @@ public class AddressBookData {
         this.emailId = emailId;
     }
 
-    public long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

@@ -14,12 +14,12 @@ public class AddressBookDTO {
     @Pattern(regexp = "^(?!.*@.*@)[abc]+([.+-_][0-9a-zA-Z]+)*@[0-9a-zA-Z]+[.][a-zA-Z]{2,4}[.]{0,1}([a-zA-Z]{0,3})$", message = "Invalid Email ID ")
     public String emailId;
     @Pattern(regexp = "[91]{2}\\\\s{1}[789][0-9]{9}", message = "Invalid Mobile Number")
-    public long phoneNumber;
+    public String phoneNumber;
     public int zipCode;
 
     public AddressBookDTO(String firstName, String lastName, String address,
                           String city, String state, String emailId,
-                          long phoneNumber, int zipCode) {
+                          String phoneNumber, int zipCode) {
 
         this.firstName = firstName;
         this.lastName = lastName;
