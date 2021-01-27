@@ -1,8 +1,17 @@
 package com.bridgelabz.addressbookapp.model;
 
 import com.bridgelabz.addressbookapp.dto.AddressBookDTO;
+import lombok.Data;
 
-public class AddressBookData {
+import javax.persistence.*;
+
+@Entity
+@Table(name = "address_book")
+public @Data class AddressBookData {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "address_id")
     public int addressId;
     public String firstName;
     public String lastName;
@@ -13,8 +22,14 @@ public class AddressBookData {
     public String phoneNumber;
     public int zipCode;
 
-    public AddressBookData(int addressId, AddressBookDTO addressBookDTO) {
-        this.addressId = addressId;
+    public AddressBookData() {
+        
+    }
+    public AddressBookData(AddressBookDTO addressBookDTO) {
+        this.updateAddressBookData(addressBookDTO);
+    }
+
+    public void updateAddressBookData(AddressBookDTO addressBookDTO) {
         this.firstName = addressBookDTO.firstName;
         this.lastName = addressBookDTO.lastName;
         this.address = addressBookDTO.address;
@@ -23,77 +38,5 @@ public class AddressBookData {
         this.emailId = addressBookDTO.emailId;
         this.phoneNumber = addressBookDTO.phoneNumber;
         this.zipCode = addressBookDTO.zipCode;
-    }
-
-    public int getAddressId() {
-        return addressId;
-    }
-
-    public void setAddressId(int addressId) {
-        this.addressId = addressId;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getEmailId() {
-        return emailId;
-    }
-
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public int getZipCode() {
-        return zipCode;
-    }
-
-    public void setZipCode(int zipCode) {
-        this.zipCode = zipCode;
     }
 }

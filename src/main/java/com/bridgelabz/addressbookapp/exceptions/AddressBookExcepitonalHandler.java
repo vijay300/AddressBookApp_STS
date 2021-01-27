@@ -16,7 +16,7 @@ public class AddressBookExcepitonalHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ResponseDTO> handleMethodArgumentNotValidException(
-            MethodArgumentNotValidException exception) {
+                                                    MethodArgumentNotValidException exception) {
         List<ObjectError> errorList = exception.getBindingResult().getAllErrors();
         List<String> errMsg = errorList.stream()
                                        .map(objErr -> objErr.getDefaultMessage())
